@@ -1,11 +1,7 @@
-echo "Enter sample Password"
+echo "Enter 4 digit Password:"                                                                                                                              
 read passwd
-echo Password is: $passwd
-rand=$(($RANDOM%10))
-#echo $rand
-if [ $passwd == $rand ]; then 
-  echo $rand                                                                                                                                              
-else
-  rand=$(($RANDOM%10))
-fi
-#printf \\$(printf "%o" $oct)
+for i in `seq 1 9999`i; do
+  if [ $passwd == $i ]; then
+    echo Password is: $i
+  fi
+done
