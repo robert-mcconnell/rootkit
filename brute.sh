@@ -1,12 +1,17 @@
-echo "Enter Password:"
+echo "Enter Password:"                                                                                                                                      
 read passwd
-for ((j=0;j<${#passwd};j++)); do
+passlen=${#passwd}
+temp=""
+for ((j=0;j<$passlen;j++)); do
   for i in `seq 32 127`; do
     oct=$(printf \\$(printf "%o" $i))
-    pass[$j]="${passwd:j:1}"
-    if [ ${pass[$j]} == "$oct" ]; then                                                                                                                  
-      cracked+=$oct
+    if [ ${passwd} == "$temp" ]; then
+      cracked+=$temp
     fi
   done
+  if [ -n "$cracked" ]; then
+    echo "Password is: $cracked"
+  else
+    temp+=$oct
+  fi
 done
-echo "Password is: $cracked"
