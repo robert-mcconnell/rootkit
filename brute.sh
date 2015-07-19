@@ -1,5 +1,5 @@
 echo "Enter Password:"                                                                                                                                      
-read passwd
+read -s passwd
 passlen=${#passwd}
 for ((j=0;j<$passlen;j++)); do
   for i in `seq 32 127`; do
